@@ -29,7 +29,7 @@ services:
             - php
     php:
         container_name: miage-php
-        image: miage-php-img:v1
+        image: miage-php-img:v2
         build:
           context: .docker/php/
           dockerfile: Dockerfile
