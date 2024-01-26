@@ -10,7 +10,10 @@ RUN chmod +x /usr/local/bin/install-php-extensions \
         xdebug \
     && rm -rf /tmp/*  /var/cache/apk/* \
     && adduser -D userdocker \
-    && chown -R userdocker: /var/www
+    && chown -R userdocker: /var/www \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    && chmod +x /usr/local/bin/*
+
 
 USER userdocker
 

@@ -29,7 +29,7 @@ services:
             - php
     php:
         container_name: miage-php
-        image: miage-php-img:v1
+        image: miage-php-img:v2
         build:
           context: .docker/php/
           dockerfile: Dockerfile
@@ -40,3 +40,10 @@ services:
             - .docker/php/conf/zzzz_custom.ini:/usr/local/etc/php/conf.d/zzzz_custom.ini
         extra_hosts:
           - "host.docker.internal:host-gateway"
+    adminer:
+        image: adminer:4.8.1
+        container_name: miage-adminer
+        environment:
+            ADMINER_DEFAULT_SERVER: miage-mariadb
+        ports:
+        - 8051:8080
